@@ -51,7 +51,7 @@ syntax on
 colorscheme despacio
 set t_Co=256
 " ---------------------------------------------------------------------
-" map
+" keymap
 " ---------------------------------------------------------------------
 " insert modeから抜ける
 inoremap <silent> jj <ESC>
@@ -61,7 +61,8 @@ inoremap ( ()<Left>
 inoremap [ []<Left>
 inoremap " ""<Left>
 inoremap ' ''<Left>
-" set number
+
+" set number の有効/無効切替
 " refer : http://qiita.com/smison/items/f392037f1164eba5cc74
 function Setnumber()
 	if &number
@@ -71,3 +72,35 @@ function Setnumber()
 	endif
 endfunction
 nnoremap <silent> <C-n> :call Setnumber()<CR>
+
+"NeoBundle Scripts-----------------------------
+"http://qiita.com/puriketu99/items/1c32d3f24cc2919203eb
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath^=~/.vim/bundle/neobundle.vim/
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Add or remove your Bundles here:
+NeoBundle 'scrooloose/nerdtree'
+
+" You can specify revision/branch/tag.
+
+" Required:
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+"End NeoBundle Scripts-------------------------

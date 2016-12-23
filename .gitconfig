@@ -1,0 +1,9 @@
+[user]
+	name = 
+	email = 
+[alias]
+	st = 'status --short'
+	co = checkout
+	br = branch
+[color]
+	ui = auto
